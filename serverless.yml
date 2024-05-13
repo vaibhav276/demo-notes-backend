@@ -4,6 +4,11 @@ frameworkVersion: '3'
 provider:
   name: aws
   runtime: nodejs20.x
+  region: ap-south-1
+  stage: prod
+  memorySize: 128
+  timeout: 5
+  endpointType: regional
 
 functions:
   function1:
