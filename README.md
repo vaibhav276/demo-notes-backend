@@ -1,8 +1,8 @@
 # Demo Notes
-This is a demo backend application that lets users save their notes on cloud. It runs as a completely serverless application on AWS cloud.
+This is a demo backend application that lets users save their notes on cloud. It runs as a completely serverless application on AWS cloud. The purpose is to demonstrate a bare bones application that uses only AWS Serverless services to provide a cost-effective and scalable backend to a web or mobile frontend.
 
 # Architecture
-TODO
+![Technical Context](./demo-notes-backend.drawio.svg)
 
 ## Key Components
 ### Key-value database store: AWS DynamoDB
