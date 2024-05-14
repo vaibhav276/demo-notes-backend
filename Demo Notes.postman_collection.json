@@ -1,0 +1,173 @@
+{
+	"info": {
+		"_postman_id": "64657ef0-6fde-4643-911c-bd5736b41e80",
+		"name": "Demo Notes",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "34701264"
+	},
+	"item": [
+		{
+			"name": "Add Note",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "app_user_id",
+						"value": "U1234"
+					},
+					{
+						"key": "app_user_name",
+						"value": "Vaibhav"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"Item\": {\r\n        \"title\": \"My note#8\",\r\n        \"content\": \"Content of note#8\",\r\n        \"cat\": \"general\"\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{API_HOST}}/prod/note",
+					"host": [
+						"{{API_HOST}}"
+					],
+					"path": [
+						"prod",
+						"note"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Note",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "app_user_id",
+						"value": "U1234"
+					},
+					{
+						"key": "app_user_name",
+						"value": "Vaibhav"
+					}
+				],
+				"url": {
+					"raw": "{{API_HOST}}/prod/note/n/U1234:ab5f1826-fcd3-467d-af9c-d6a87678f7d5",
+					"host": [
+						"{{API_HOST}}"
+					],
+					"path": [
+						"prod",
+						"note",
+						"n",
+						"U1234:ab5f1826-fcd3-467d-af9c-d6a87678f7d5"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Note",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "app_user_id",
+						"value": "U1234"
+					},
+					{
+						"key": "app_user_name",
+						"value": "Vaibhav"
+					}
+				],
+				"url": {
+					"raw": "{{API_HOST}}/prod/note/t/1715655422",
+					"host": [
+						"{{API_HOST}}"
+					],
+					"path": [
+						"prod",
+						"note",
+						"t",
+						"1715655422"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Notes",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "app_user_id",
+						"value": "U1234"
+					},
+					{
+						"key": "app_user_name",
+						"value": "Vaibhav"
+					}
+				],
+				"url": {
+					"raw": "{{API_HOST}}/prod/notes?start=1715668448",
+					"host": [
+						"{{API_HOST}}"
+					],
+					"path": [
+						"prod",
+						"notes"
+					],
+					"query": [
+						{
+							"key": "start",
+							"value": "1715668448"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Note",
+			"request": {
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "app_user_id",
+						"value": "U1234"
+					},
+					{
+						"key": "app_user_name",
+						"value": "Vaibhav"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"Item\": {\r\n        \"title\": \"My modified_2 title note#1\",\r\n        \"timestamp\": 1715667079\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{API_HOST}}/prod/note",
+					"host": [
+						"{{API_HOST}}"
+					],
+					"path": [
+						"prod",
+						"note"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
