@@ -43,7 +43,7 @@ export const handler = async (event) => {
 		const command = new QueryCommand(input);
 		const response = await client.send(command);
 
-		// console.log("response", response);
+		console.log("response", response);
 
 		let items = _.map(response.Items, (item) => {
 			return {
@@ -58,18 +58,22 @@ export const handler = async (event) => {
 			}
 		});
 
+		let ret = {
+			Items: items,
+			Count: response.Count,
+			ScannedCount: response.ScannedCount
+		}
+
+		if (!_.isEmpty(response.LastEvaluatedKey)) {
+			ret.LastEvaluatedKey = {
+				user_id: response.LastEvaluatedKey.user_id.S,
+				timestamp: response.LastEvaluatedKey.timestamp.N
+			}
+		}
 		return {
 			statusCode: 200,
 			headers: getResponseHeaders(),
-			body: JSON.stringify({
-				Items: items,
-				LastEvaluatedKey: {
-					user_id: response.LastEvaluatedKey.user_id.S,
-					timestamp: response.LastEvaluatedKey.timestamp.N
-				},
-				Count: response.Count,
-				ScannedCount: response.ScannedCount
-			})
+			body: JSON.stringify(ret)
 		}
 	} catch (err) {
 		console.error("err", err);

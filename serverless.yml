@@ -30,16 +30,16 @@ provider:
   iamRoleStatements:
     - Effect: Allow
       Action:
-        - dynamodb::Query
-        - dynamodb::PutItem
-        - dynamodb::DeleteItem
+        - dynamodb:Query
+        - dynamodb:PutItem
+        - dynamodb:DeleteItem
       Resource: "arn:aws:dynamodb:${opt:region, self:provider.region}:*:table/${self:provider.environment.NOTES_TABLE}"
 
 resources:
   Resources:
     NotesTable:
       Type: AWS::DynamoDB::Table
-      DeletionPolicy: Retain
+      DeletionPolicy: Delete
       Properties:
         TableName: ${self:provider.environment.NOTES_TABLE}
         AttributeDefinitions:
