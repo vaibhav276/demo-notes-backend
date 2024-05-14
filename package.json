@@ -18,5 +18,14 @@
     "lambda"
   ],
   "author": "Vaibhav Pujari",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "@aws-sdk/client-dynamodb": "^3.574.0",
+    "dayjs": "^1.11.11",
+    "underscore": "^1.13.6",
+    "uuid": "^9.0.1"
+  },
+  "devDependencies": {
+    "serverless-offline": "^13.5.0"
+  }
 }
